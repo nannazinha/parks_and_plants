@@ -13,7 +13,12 @@ class PlantsController < ApplicationController
     else
       render 'garden/show'
     end
+  end
 
+  def destroy
+    @plant = Plant.find(params[:id])
+    @plant.destroy
+    redirect_to @plant.garden
   end
 
   private
